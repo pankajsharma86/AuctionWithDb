@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7df55dde009c4551a7a5e067ccf8633d" Name="Diagram1">
-        <EntityTypeShape EntityType="AuctionWithDbModel.Auction" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="9a6f6a1005544e5d834a3870b22bdc93" Name="Diagram1">
+        <EntityTypeShape EntityType="AuctionModel.Auction" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

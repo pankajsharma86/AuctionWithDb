@@ -13,10 +13,10 @@ namespace AuctionWithDb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AuctionWithDbEntities : DbContext
+    public partial class AuctionEntities : DbContext
     {
-        public AuctionWithDbEntities()
-            : base("name=AuctionWithDbEntities")
+        public AuctionEntities()
+            : base("name=AuctionEntities")
         {
         }
     

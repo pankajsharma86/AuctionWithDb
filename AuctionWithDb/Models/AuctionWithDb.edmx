@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AuctionWithDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AuctionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Auction">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" />
-          <Property Name="Titlt" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="300" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="250" />
           <Property Name="StartTime" Type="datetime" />
@@ -19,21 +19,21 @@
           <Property Name="StartPrice" Type="float" />
           <Property Name="CurrentPrice" Type="float" />
         </EntityType>
-        <EntityContainer Name="AuctionWithDbModelStoreContainer">
+        <EntityContainer Name="AuctionModelStoreContainer">
           <EntitySet Name="Auction" EntityType="Self.Auction" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AuctionWithDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AuctionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Auction">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Titlt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="StartTime" Type="DateTime" Precision="3" />
@@ -41,7 +41,7 @@
           <Property Name="StartPrice" Type="Double" />
           <Property Name="CurrentPrice" Type="Double" />
         </EntityType>
-        <EntityContainer Name="AuctionWithDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AuctionEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Auctions" EntityType="Self.Auction" />
         </EntityContainer>
       </Schema>
@@ -49,13 +49,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AuctionWithDbModelStoreContainer" CdmEntityContainer="AuctionWithDbEntities">
+        <EntityContainerMapping StorageEntityContainer="AuctionModelStoreContainer" CdmEntityContainer="AuctionEntities">
           <EntitySetMapping Name="Auctions">
-            <EntityTypeMapping TypeName="AuctionWithDbModel.Auction">
+            <EntityTypeMapping TypeName="AuctionModel.Auction">
               <MappingFragment StoreEntitySet="Auction">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Titlt" ColumnName="Titlt" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
