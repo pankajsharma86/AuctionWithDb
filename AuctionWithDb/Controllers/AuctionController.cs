@@ -15,10 +15,12 @@ namespace AuctionWithDb.Controllers
         }
 
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Auction()
         {
             return View();
         }
+
+       
 
        
     }
