@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AuctionWithDb.Models;
+using AuctionWithDb.ViewModel;
 using System.Web.Security;
 
 namespace AuctionWithDb.Controllers
@@ -17,13 +18,13 @@ namespace AuctionWithDb.Controllers
         }
 
         [HttpGet]
-        public ActionResult Auction()
+        public ActionResult PlaceAuction()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Auction([Bind(Exclude = "CurrentPrice")]Auction model)
+        public ActionResult PlaceAuction(Auction model)
         {
             using (var db = new AuctionEntities())
             {
@@ -42,11 +43,52 @@ namespace AuctionWithDb.Controllers
                 db.Auctions.Add(bid);
                 db.SaveChanges();
             }
-                return View();
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
 
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Register(Register model)
+        {
+            using (var db = new AuctionEntities())
+            {
+                    var user = new User()
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Username = model.UserName,
+                    Password = model.Password,
+                    Email = model.EmailAddress,
+                    IsActive = true,
+                    CreatedOn = DateTime.Now,
+                    CreatedBy = model.EmailAddress,
+                };
+                db.Users.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+        }
 
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Login(Login model)
+        {
+            return View();
+        }
     }
 }

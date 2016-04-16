@@ -1,18 +1,18 @@
-﻿@model AuctionWithDb.Models.Auction
+﻿@model AuctionWithDb.ViewModel.PlaceAuction
 
 @{
-    ViewBag.Title = "Auction";
+    ViewBag.Title = "PlaceAuction";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Place an Auction</h2>
+<h2>PlaceAuction</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Auction</h4>
+        <h4>PlaceAuction</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -56,10 +56,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Endtime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endtime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Endtime, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -72,9 +72,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrentPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.CurrentPrice, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CurrentPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.CurrentPrice, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CurrentPrice, "", new { @class = "text-danger" })
             </div>
         </div>

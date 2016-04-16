@@ -15,13 +15,16 @@ namespace AuctionWithDb.Models
     public partial class Auction
     {
         public int Id { get; set; }
+        public Nullable<int> User_Id { get; set; }
         public string Category { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime Endtime { get; set; }
-        public double StartPrice { get; set; }
-        public double CurrentPrice { get; set; }
+        public Nullable<System.DateTime> StartTime { get; set; }
+        public Nullable<System.DateTime> Endtime { get; set; }
+        public Nullable<double> StartPrice { get; set; }
+        public Nullable<double> CurrentPrice { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }
